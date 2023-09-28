@@ -4,7 +4,7 @@ import { handleHttpErrors, sanitizeStringWithTableRows } from "../../utils.js";
 export async function initListReservationsAll() {
 	document.getElementById("error").innerText = "";
 	try {
-		const HARDCODED_USER = "member1";
+		const HARDCODED_USER = "johndoe";
 		const URL = API_URL + "/reservations/" + HARDCODED_USER;
 		const reservations = await fetch(URL).then(handleHttpErrors);
 		const rows = reservations

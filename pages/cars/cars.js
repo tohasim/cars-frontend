@@ -1,10 +1,14 @@
 import { API_URL } from "../../settings.js";
-const URL = API_URL + "/cars";
-import { sanitizeStringWithTableRows, handleHttpErrors } from "../../utils.js";
+const URL = API_URL + "/cars/admin";
+import {
+	sanitizeStringWithTableRows,
+	handleHttpErrors,
+	makeOptions,
+} from "../../utils.js";
 
 export async function initCars() {
-	//const cars = await fetch(URL).then((res)=>handleHttpErrors(res))
-	const cars = await fetch(URL).then((res) => res.json());
+	const options = makeOptions("GET", null, true);
+	const cars = await fetch(URL, options).then((res) => res.json());
 
 	const tableRows = cars.map(
 		(car) => `
